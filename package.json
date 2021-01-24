@@ -1,6 +1,6 @@
 {
-  "name": "@nxswap/nxswap-js",
-  "version": "0.0.34",
+  "name": "@nxswap/nxswap-core",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nxswap/nxswap-js.git"
+    "url": "git+https://github.com/nxswap/nxswap-core.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nxswap/nxswap-js/issues"
+    "url": "https://github.com/nxswap/nxswap-core/issues"
   },
-  "homepage": "https://github.com/nxswap/nxswap-js#readme",
+  "homepage": "https://github.com/nxswap/nxswap-core#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/nxswap"
   },
