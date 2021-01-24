@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>NXSwap JS - Demo</title>
+	<link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+	<h2>NXSwap JS - Toolkit Demo Page<small style="color: red;">Using this tool is at your OWN RISK and should be used for TESTNET ONLY!</small><small>Your private keys are stored as cookies, this is for short term storage and is not considered secure or safe.</small></h2>
+	<div id="testarea">
+		<!-- Blockchain A -->
+		<div class="a">
+			<div class="header">
+				<div class="networkselect">
+					<select id="a_networkselect" disabled>
+						<option value="1">...</option>
+					</select>
+				</div>
+				Blockchain A
+			</div>
+			<div class="contentrow flex">
+				<strong>Blockbook Node</strong>
+				<input type="text" id="a_blockbooknode" class="inline" disabled="disabled" />
+			</div>
+			<div id="a_show_address" class="showAddress">
+				<div class="contentrow">
+					<strong class="block">Your Keypair<button id="a_address_createnew" disabled="disabled">create new</button> <span><small>Balance: <strong id="a_address_balance">...</strong><button id="a_address_balance_refresh">refresh</button></small></span></strong>
+					<div class="inputfield">
+						<strong>Address (p2wpkh)(bech32)</strong>
+						<input type="text" id="a_address_pub" value="..." disabled="disabled">
+					</div>
+					<div class="inputfield">
+						<strong>Private WIF (Can provide your own) (edit, press enter)</strong>
+						<input type="text" id="a_address_privWIF" value="...">
+					</div>
+				</div>
+			</div>
+			<div id="a_show_tools" class="showTools">
+				<!-- Tool > Simple Transaction -->
+				<div id="a_tool_simpletx" class="toolContainer">
+					<div class="header">
+						<button class="openCloseTool">open</button>
+						Tool > Create &amp Broadcast Simple Transaction</div>
+					<div id="a_tool_simpletx_content" class="toolContent">
+						<div class="contentrow flex">
+							<strong>To Address<small id="a_simpletx_address_status"></small></strong>
+							<input type="text" class="inline" id="a_simpletx_toaddress" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Send Amount (sats)<br /><small>(leave blank or 0 for max)</small><small id="a_simpletx_amount_status"></small></strong>
+							<input type="text" class="inline" id="a_simpletx_amount" value="0" />
+						</div>
+						<div class="contentrow">
+							<strong class="block">Raw Transaction (HEX)
+								<span>
+									<button id="a_simpletx_create" disabled="disabled">create transaction</button>
+									<button id="a_simpletx_broadcast" disabled="disabled">broadcast transaction</button>
+								</span>
+							</strong>
+							<textarea id="a_simpletx_txraw"></textarea>
+							<span id="a_simpletx_createbroadcast_result"></span>
+						</div>
+					</div>
+				</div>
+				<!-- Tool > Create Atomic Swap Secret Pair -->
+				<div id="a_tool_ascreatesecret" class="toolContainer">
+					<div class="header">
+						<button class="openCloseTool">open</button>
+						Tool > Create Atomic Swap Secret Pair</div>
+					<div id="a_tool_ascreatesecret_content" class="toolContent">
+						<div class="contentrow">
+							<strong class="block">Secret Pair<span><button id="a_tool_ascreatesecret_createnew">create new</button></span></strong>
+							<div class="inputfield">
+								<strong>Secret</strong>
+								<input type="text" id="a_tool_ascreatesecret_secret" />
+							</div>
+							<div class="inputfield">
+								<strong>Secret Hash</strong>
+								<input type="text" id="a_tool_ascreatesecret_secrethash" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Tool > Create Atomic Swap Script -->
+				<div id="a_tool_ascreatescript" class="toolContainer">
+					<div class="header">
+						<button class="openCloseTool">open</button>
+						Tool > Create Atomic Swap Script</div>
+					<div id="a_tool_ascreatescript_content" class="toolContent">
+						<div class="contentrow flex">
+							<strong>Secret Hash<small id="a_tool_ascreatescript_secrethash_status"></small></strong>
+							<input type="text" class="inline" id="a_tool_ascreatescript_secrethash" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Destination<br /><small>Address or PubKeyHash</small><small id="a_tool_ascreatescript_destaddress_status"></small></strong>
+							<input type="text" class="inline" id="a_tool_ascreatescript_destaddress" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Refund Address</strong>
+							<input type="text" class="inline" id="a_tool_ascreatescript_refundaddress" value="your keypair address above is used" disabled="disabled" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Locktime (hours)<small id="a_tool_ascreatescript_locktimehrs_status"></small></strong>
+							<input type="text" class="inline" id="a_tool_ascreatescript_locktimehrs" value="48" />
+						</div>
+						<div class="contentrow">
+							<strong class="block">Atomic Swap Script
+								<span>
+									<button id="a_tool_ascreatescript_create" disabled="disabled">create script</button>
+								</span>
+							</strong>
+							<strong class="block">Script HEX</strong>
+							<textarea id="a_tool_ascreatescript_scripthex" disabled="disabled"></textarea>
+							<br />
+							<strong class="block">Script Address (p2wsh)</strong>
+							<input type="text" id="a_tool_ascreatescript_scriptaddr" disabled="disabled" />
+							<span id="a_tool_ascreatescript_result"></span>
+						</div>
+					</div>
+				</div>
+				<!-- Tool > Audit Atomic Swap Script -->
+				<div id="a_tool_asauditscript" class="toolContainer">
+					<div class="header">
+						<button class="openCloseTool">open</button>
+						Tool > Audit Atomic Swap Script</div>
+					<div id="a_tool_asauditscript_content" class="toolContent">
+						<div class="contentrow">
+							<strong class="block">Atomic Swap Script<small id="a_tool_asauditscript_audit_status"></small>
+								<span>
+									<button id="a_tool_asauditscript_audit" disabled="disabled">audit script</button>
+								</span>
+							</strong>
+							<strong class="block">Script HEX</strong>
+							<textarea id="a_tool_asauditscript_scripthex"></textarea>
+						</div>
+						<div class="contentrow flex">
+							<strong>Script Address (p2wsh)</strong>
+							<input type="text" class="inline" id="a_tool_asauditscript_scriptaddr" disabled="disabled" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Secret Hash</strong>
+							<input type="text" class="inline" id="a_tool_asauditscript_secrethash" disabled="disabled" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Destination (p2wpkh)</strong>
+							<input type="text" class="inline" id="a_tool_asauditscript_destp2wpkh" disabled="disabled" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Refund (p2wpkh)</strong>
+							<input type="text" class="inline" id="a_tool_asauditscript_refundp2wpkh" disabled="disabled" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Locktime</strong>
+							<input type="text" class="inline" id="a_tool_asauditscript_locktime" disabled="disabled" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Blockchain Audit</strong>
+							<strong class="inline">
+								<small id="a_tool_asauditscript_blockchainaudit"></small>
+							</strong>
+						</div>
+						<div id="a_tool_asauditscript_utxos" class="contentrow flex" style="display: none;">
+							<table class="txtable">
+								<thead>
+									<tr>
+										<th>txid</th>
+										<th>value</th>
+										<th>confs</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>	
+				<!-- Tool > Redeem Atomic Swap Script -->
+				<div id="a_tool_asredeemscript" class="toolContainer">
+					<div class="header">
+						<button class="openCloseTool">open</button>
+						Tool > Redeem Atomic Swap Script</div>
+					<div id="a_tool_asredeemscript_content" class="toolContent">
+						<div class="contentrow">
+							<strong class="block">Script HEX<small id="a_tool_asredeemscript_scripthex_status"></small></strong>
+							<textarea id="a_tool_asredeemscript_scripthex"></textarea>
+						</div>
+						<div class="contentrow flex">
+							<strong>Secret<small id="a_tool_asredeemscript_secret_status"></small></strong>
+							<input type="text" class="inline" id="a_tool_asredeemscript_secret" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Destination Address</strong>
+							<input type="text" class="inline" value="your keypair address above has to be used" disabled="disabled" />
+						</div>
+						<div class="contentrow">
+							<strong class="block">Raw Transaction (HEX)
+								<span>
+									<button id="a_tool_asredeemscript_create" disabled="disabled">create transaction</button>
+									<button id="a_tool_asredeemscript_broadcast" disabled="disabled">broadcast transaction</button>
+								</span>
+							</strong>
+							<textarea id="a_tool_asredeemscript_txraw"></textarea>
+							<span id="a_tool_asredeemscript_result"></span>
+						</div>
+					</div>
+				</div>	
+				<!-- Tool > Extract Atomic Swap Secret -->
+				<div id="a_tool_asextractsecret" class="toolContainer">
+					<div class="header">
+						<button class="openCloseTool">open</button>
+						Tool > Extract Atomic Swap Secret</div>
+					<div id="a_tool_asextractsecret_content" class="toolContent">
+						<div class="contentrow">
+							<strong class="block">Atomic Swap Script<small id="a_tool_asextractsecret_extract_status"></small></small>
+								<span>
+									<button id="a_tool_asextractsecret_extract" disabled="disabled">extract secret</button>
+								</span>
+							</strong>
+							<strong class="block">Script HEX<small id="a_tool_asextractsecret_scripthex_status"></small></strong>
+							<textarea id="a_tool_asextractsecret_scripthex"></textarea>
+						</div>
+						<div class="contentrow flex">
+							<strong>Secret</strong>
+							<input type="text" class="inline" id="a_tool_asextractsecret_secret" disabled="disabled" />
+						</div>
+						<div class="contentrow flex">
+							<strong>Found in TX</strong>
+							<input type="text" class="inline" id="a_tool_asextractsecret_txid" disabled="disabled" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Blockchain B -->
+		<!-- automatically generated on load from a -->
+		<div class="b">
+		</div>
+	</div>
+	<div class="blurb">
+		nxswap-js is <a href="https://www.github.com/nxswap/nxswap-js" target="_blank">Open Source</a>
+	</div>
+	<script src="./dist/NXSwap.js"></script>
+	<script src="./dist/NXBlockbookAPI.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+	<script src="./js/demo.js"></script>
+	<script src="./js/tools/simpletx.js"></script>
+	<script src="./js/tools/ascreatesecret.js"></script>
+	<script src="./js/tools/ascreatescript.js"></script>
+	<script src="./js/tools/asauditscript.js"></script>
+	<script src="./js/tools/asredeemscript.js"></script>
+	<script src="./js/tools/asextractsecret.js"></script>
+</body>
+</html>

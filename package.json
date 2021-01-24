@@ -1,0 +1,55 @@
+{
+  "name": "@nxswap/nxswap-js",
+  "version": "0.0.34",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nxswap/nxswap-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nxswap/nxswap-js/issues"
+  },
+  "homepage": "https://github.com/nxswap/nxswap-js#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/nxswap"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bip32": "^2.0.5",
+    "bip32grs": "^2.0.5",
+    "bip39": "^3.0.2",
+    "bip44-constants": "^8.0.35",
+    "bitcoinjs-lib": "^5.1.10",
+    "blockbook-client": "^0.3.10",
+    "bs58check": "^2.1.2",
+    "bs58grscheck": "^2.1.2",
+    "centrifuge": "^2.6.4",
+    "coinselect": "^3.1.12",
+    "console-stamp": "^0.2.9",
+    "crypto-random-string": "^3.2.0",
+    "date-and-time": "^0.14.2",
+    "fs-jetpack": "^2.4.0",
+    "is-base64": "^1.1.0",
+    "isomorphic-ws": "^4.0.1",
+    "lodash": "^4.17.20",
+    "lowdb": "^1.0.0",
+    "niceware": "^2.0.1",
+    "secp256k1": "^4.0.2",
+    "sjcl": "^1.0.8",
+    "store2": "^2.11.2",
+    "uuid4": "^1.1.4",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.9.7",
+    "webpack-cli": "^3.3.12"
+  }
+}

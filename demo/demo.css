@@ -1,0 +1,236 @@
+* { margin: 0; padding: 0; }
+
+body {
+	background: #444;
+	color: white;
+	font-family: Helvetica Neue, Helvetica;
+	font-size: 15px;
+}
+
+h2 {
+	display: block;
+	padding: 40px;
+	text-align: center;
+	font-size: 22px;
+}
+
+h2 small {
+	display: block;
+	padding-top: 7px;
+	font-size: 14px;
+}
+#testarea {
+	width: 1200px;
+	margin: 0px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 40px;
+}
+
+#testarea .a,
+#testarea .b {
+	flex: 1;
+}
+
+
+#testarea .a {
+	background: #868686;
+}
+
+#testarea .b {
+	background: #737272;
+}
+
+#testarea .header {
+	padding: 25px;
+	text-align: left;
+	font-size: 18px;
+	font-weight: bold;
+	border-bottom: 1px solid #252525;
+	background: #252525;
+}
+
+#testarea .header .networkselect {
+	float: right;
+}
+
+#testarea .header .networkselect select {
+	width: 150px;
+	font-size: 15px;
+}
+
+#testarea .header .openCloseTool {
+	float: right;
+	border: 0;
+	padding: 5px;
+	cursor: pointer;
+}
+
+#testarea .contentrow {
+	padding: 25px;
+	border-bottom: 1px solid #252525;
+}
+
+#testarea .contentrow.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#testarea .contentrow small.red-badge {
+	background: red;
+	display: inline-block;
+	padding: 0px 4px;
+	color: white;
+	margin-left: 8px;
+}
+
+#testarea .contentrow small.green-badge {
+	background: green;
+	display: inline-block;
+	padding: 0px 4px;
+	color: white;
+	margin-left: 8px;
+}
+
+
+#testarea .contentrow .red-alert {
+	background: red;
+	display: block;
+	margin-top: 10px;
+	padding: 8px 8px;
+	text-align: center;
+	color: white;
+}
+
+#testarea .contentrow .green-alert {
+	background: green;
+	display: block;
+	margin-top: 10px;
+	padding: 8px 8px;
+	text-align: center;
+	color: white;
+}
+
+#testarea .contentrow strong.block {
+	display: block;
+	padding-bottom: 16px;
+	font-size: 16px;
+}
+
+#testarea .contentrow strong.block span {
+	float: right;
+	font-size: 14px;
+}
+
+#testarea .contentrow strong.block span small {
+	font-weight: normal;
+	font-size: 14px;
+	display: inline-block;
+	padding-left: 8px;
+}
+
+#testarea .contentrow button {
+	border: 0;
+	padding: 5px;
+	margin-left: 10px;
+	cursor: pointer;
+	background: white;
+	color: #252525;
+}
+
+#testarea .contentrow .inputfield {
+	display: block;
+	margin-bottom: 10px;
+}
+
+#testarea .contentrow .inputfield:last-of-type {
+	margin-bottom: 0px;
+}
+
+#testarea .contentrow .inputfield strong {
+	display: block;
+	padding-bottom: 10px;
+}
+
+#testarea .contentrow input[type=text],
+#testarea .contentrow textarea {
+	padding: 10px;
+	display: block;
+	width: 530px;
+	font-size: 15px;
+	border: 1px solid white;
+}
+
+#testarea .contentrow input[type=text].inline {
+	padding: 6px;
+	display: inline-block;
+	width: 320px;
+	font-size: 15px;
+	border: 1px solid white;
+}
+
+#testarea .contentrow small.inline {
+	display: inline-block;
+	max-width: 320px;
+}
+
+
+#testarea .contentrow input[type=text].disabled,
+#testarea .contentrow input[type=text]:disabled,
+#testarea .contentrow button.disabled,
+#testarea .contentrow button:disabled,
+#testarea .contentrow textarea:disabled {
+	opacity: 0.7;
+	cursor: not-allowed !important;
+}
+
+#testarea .showAddress,
+#testarea .showTools {
+	display: none;
+	border-top: 2px solid #252525;
+}
+
+#testarea .toolContainer {
+	border-top: 2px solid #252525;
+}
+
+#testarea .disabledForm {
+	opacity: 0.5;
+	cursor: not-allowed !important;
+}
+
+#testarea .txtable {
+	border: 0;
+	max-width: 100%;
+	width: 100%;
+}
+
+#testarea .txtable th {
+	font-size: 12px;
+	text-align: left;
+	padding: 2px 6px;
+}
+
+#testarea .txtable td {
+	font-size: 12px;
+	text-align: left;
+	padding: 2px 6px;
+}
+
+.toolContent {
+	display: none;
+}
+
+.blurb {
+	display: block;
+	text-align: center;
+	padding: 30px;
+}
+
+.blurb a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
