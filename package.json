@@ -17,11 +17,8 @@
     "url": "https://github.com/nxswap/nxswap-core/issues"
   },
   "homepage": "https://github.com/nxswap/nxswap-core#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/nxswap"
-  },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bip32": "^2.0.5",
     "bip32grs": "^2.0.5",
     "bip39": "^3.0.2",
