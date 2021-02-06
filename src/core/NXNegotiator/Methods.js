@@ -69,6 +69,7 @@ module.exports = {
         pubkey: b_pubkey.toString('hex'),
         currency: b_currency,
         amount: b_amount,
+        received: false,
         address: false,
         contract: false,
         contractAAccepted: false,
@@ -140,6 +141,36 @@ module.exports = {
 
     return true;
   }, 
+
+  /**
+  * Acknowledge A Swap Proposal
+  */
+
+ acknowledgeSwapProposal: function(id) {
+  let getProposal = this.nxDB.loadProposal(id);
+  if( ! getProposal ) return false;
+
+  getProposal = _.cloneDeep(getProposal);
+
+  // Acknowledge Swap Proposal
+  // An action only available to party_b, to confirm delivery of proposal
+
+  // Do it!
+  let received = new Date().getTime(); 
+  getProposal.party_b.received = received;
+
+  // Update db..
+  let updateProposal = this.nxDB.updateProposal(id, getProposal);
+  if( ! updateProposal ) return false;
+
+  let message = this.prepareBroadcastMessage(getProposal);
+  if( ! message) return false;
+
+  let broadcast = this.broadcastMessage(getProposal.party_a.pubkey, message);
+  if( ! broadcast ) return false;
+
+  return true;
+},
 
   /**
   * Accept A Swap Proposal
