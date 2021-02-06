@@ -47,11 +47,36 @@ module.exports = {
       let now = new Date().getTime();
       // Check it hasn't expired?
       if( now >= proposal.party_a.expires ) return false;
+
+      // Also we should only accept on the following terms, to prevent hax
+      // The following fields should false. as this proposal should be new.
+      // Otherwise a user could send us a proposal that allows us to think we already accepted
+      var fieldsThatShouldBeFalse = [
+        proposal.party_b.received,
+        proposal.party_b.address, 
+        proposal.party_b.contract, 
+        proposal.party_b.contractAAccepted, 
+        proposal.party_b.accepted, 
+        proposal.party_b.declined, 
+        proposal.party_b.expires,
+        proposal.party_b.startAccepted
+      ];
+
+      for( var f of fieldsThatShouldBeFalse ) {
+        if( f !== false ) {
+          console.log(`Proposal has spoofed or invalid field`);
+          return false;
+        }
+      }
+
       // Update received
       // maybe delivery notification? for now it's messing with the tamper
-      //proposal.party_b.received = now;
       // insert into local database...
-      this.nxDB.insertNewProposal(proposal);
+      let insert = this.nxDB.insertNewProposal(proposal);
+      if( ! insert ) return false;
+
+      // Acknowledge received 
+      this.acknowledgeSwapProposal(proposal_id);
     } else {
       // Known proposal..
       // Verify differences in proposal...
