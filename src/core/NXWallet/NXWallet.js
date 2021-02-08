@@ -17,6 +17,7 @@ const date = require('date-and-time');
 const { BindToClass } = require('../NXUtil/NXUtil')
 const Swaps = require('./Swaps');
 const SwapRoutine = require('./SwapRoutine');
+const WalletUtils = require('./WalletUtils');
 
 const networks = require('../../networks');
 const HIGHEST_BIT = 2147483648; // 0x80000000
@@ -57,6 +58,7 @@ class NXWallet extends EventEmitter {
     }
 
     // Bind
+    BindToClass( WalletUtils, this );
     BindToClass( Swaps, this );
     BindToClass( SwapRoutine, this );
     // init!
