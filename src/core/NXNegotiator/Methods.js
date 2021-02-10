@@ -1,4 +1,4 @@
-// nxswap-js > NXNegotiator > Methods 
+// nxswap-core > NXNegotiator > Methods 
 // Methods.js
 
 const crypto = require('crypto');

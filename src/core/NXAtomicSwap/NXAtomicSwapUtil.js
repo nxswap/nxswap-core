@@ -1,4 +1,4 @@
-// nxswap-js > NXAtomicSwapUtil 
+// nxswap-core > NXAtomicSwapUtil 
 // NXAtomicSwapUtil.js
 
 const crypto = require('crypto');

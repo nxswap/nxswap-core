@@ -1,4 +1,4 @@
-// nxswap-js > NXRecoveryKey 
+// nxswap-core > NXRecoveryKey 
 // NXRecoveryKey.js
 const EventEmitter = require('events');
 const os = require('os');

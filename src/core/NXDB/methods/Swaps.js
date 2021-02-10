@@ -1,4 +1,4 @@
-// nxswap-js > NXDB > Swap Methods 
+// nxswap-core > NXDB > Swap Methods 
 // swaps.js
 
 module.exports = {

@@ -1,4 +1,4 @@
-// nxswap-js > NXNegotiator 
+// nxswap-core > NXNegotiator 
 // NXNegotiator.js
 const EventEmitter = require('events');
 const { BindToClass } = require('../NXUtil/NXUtil')

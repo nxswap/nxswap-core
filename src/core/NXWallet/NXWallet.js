@@ -1,4 +1,4 @@
-// nxswap-js > NXWallet 
+// nxswap-core > NXWallet 
 // NXWallet.js
 const EventEmitter = require('events');
 const crypto = require('crypto');

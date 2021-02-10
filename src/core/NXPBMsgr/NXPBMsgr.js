@@ -1,4 +1,4 @@
-// nxswap-js > NXPBMsgr
+// nxswap-core > NXPBMsgr
 // NXPBMsgr.js
 
 const EventEmitter = require('events');

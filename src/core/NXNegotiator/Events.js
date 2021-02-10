@@ -1,4 +1,4 @@
-// nxswap-js > NXNegotiator > Events 
+// nxswap-core > NXNegotiator > Events 
 // Events.js
 
 module.exports = {

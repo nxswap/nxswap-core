@@ -1,4 +1,4 @@
-// nxswap-js > NXNegotiator > routine 
+// nxswap-core > NXNegotiator > routine 
 // routine.js
 
 const NXAtomicSwap = require("../NXAtomicSwap/NXAtomicSwap");

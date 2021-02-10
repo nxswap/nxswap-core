@@ -1,4 +1,4 @@
-// nxswap-js > NXWallet > Swaps 
+// nxswap-core > NXWallet > Swaps 
 // Swaps.js
 
 const { isValidProposalStructure, hashProposal } = require('../NXNegotiator/Utils');

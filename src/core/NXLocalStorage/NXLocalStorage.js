@@ -1,4 +1,4 @@
-// nxswap-js > NXLocalStorage 
+// nxswap-core > NXLocalStorage 
 // NXLocalStorage.js
 
 const jetpack = require('fs-jetpack');

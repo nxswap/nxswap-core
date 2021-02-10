@@ -1,4 +1,4 @@
-// nxswap-js > NXAtomicSwap > NXAtomicSwapBTC
+// nxswap-core > NXAtomicSwap > NXAtomicSwapBTC
 // NXAtomicSwapBTC.js
 
 const bitcoinjs = require('bitcoinjs-lib');

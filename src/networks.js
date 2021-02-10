@@ -1,4 +1,4 @@
-// nxswap-js
+// nxswap-core
 // networks.js
 
 module.exports = {

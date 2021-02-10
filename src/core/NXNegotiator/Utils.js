@@ -1,4 +1,4 @@
-// nxswap-js > NXNegotiator > Utils 
+// nxswap-core > NXNegotiator > Utils 
 // Utils.js
 
 const crypto = require('crypto');

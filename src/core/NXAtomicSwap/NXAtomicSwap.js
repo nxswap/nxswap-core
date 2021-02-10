@@ -1,4 +1,4 @@
-// nxswap-js > NXAtomicSwap 
+// nxswap-core > NXAtomicSwap 
 // NXAtomicSwap.js
 
 // This is kind of a wrapper class for future expansion.

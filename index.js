@@ -1,4 +1,4 @@
-// nxswap-js 
+// nxswap-core 
 // index.js > Start!
 
 const crypto = require('crypto');
@@ -104,7 +104,7 @@ RecoveryKey.on('ready', (state) => {
 
 // Do Bits..
 async function start () {
-	console.log('--- nxswap-js ---');
+	console.log('--- nxswap-core ---');
 	console.log('-- attempting to auto load RecoveryKey --');
 
 	const loadRecoveryKey = await RecoveryKey.loadRecoveryKey({

@@ -1,4 +1,4 @@
-// nxswap-js > NXDB > Secrets Methods 
+// nxswap-core > NXDB > Secrets Methods 
 // secrets.js
 
 module.exports = {

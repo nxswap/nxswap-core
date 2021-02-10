@@ -1,4 +1,4 @@
-// nxswap-js > NXDB > Proposals Methods 
+// nxswap-core > NXDB > Proposals Methods 
 // proposals.js
 
 module.exports = {
