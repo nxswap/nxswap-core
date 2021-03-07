@@ -44,7 +44,7 @@ module.exports = {
 
   loadSwaps() {
     let load = this.db.get('swaps')
-    .orderBy(['created'], ['desc'])
+    .orderBy('created', 'desc')
     .value();
 
     if( load === undefined || load.length == 0 ) {
@@ -57,7 +57,7 @@ module.exports = {
   loadUncompletedSwaps() {
     let load = this.db.get(`swaps`)
     .filter({completed: false})
-    .orderBy(['created'], ['asc'])
+    .orderBy('created', 'asc')
     .value();
 
     if( load === undefined || load.length == 0 ) {
